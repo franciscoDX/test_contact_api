@@ -67,7 +67,7 @@ class ContactController {
         return res.status(400).json({ error: 'Already exists that email' });
       }
       
-      const picture = `/uploads/${req.file.filename}`;
+      const picture = `uploads/${req.file.filename}`;
       
       const newContact = await Contact.create({
         name: name.trim(),
@@ -134,7 +134,7 @@ class ContactController {
         if (fs.existsSync(oldPicturePath)) {
           fs.unlinkSync(oldPicturePath);
         }
-        picture = `/uploads/${req.file.filename}`;
+        picture = `uploads/${req.file.filename}`;
       }
       
       const updatedContact = await Contact.update(id, {
